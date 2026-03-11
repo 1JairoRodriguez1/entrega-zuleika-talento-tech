@@ -1,175 +1,113 @@
-/* Variables de color */
-:root {
-    --primary-color: #27ae60;
-    --dark-color: #1a1a1a;
-    --light-bg: #f8f9fa;
-    --white: #ffffff;
-    --text-main: #333;
-}
-
+/* 1. Reset y Fuentes */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    background-color: var(--light-bg);
-    color: var(--text-main);
-    scroll-behavior: smooth;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-/* Navegación */
+/* 2. Navegación (Corregida para que no se pegue a los bordes) */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--dark-color);
-    padding: 1rem 10%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
-}
-
-.logo span {
-    color: var(--primary-color);
+    background-color: #1a1a1a;
+    padding: 1rem 10%; /* El 10% crea el aire a los lados */
+    color: white;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 20px;
 }
 
 .nav-links a {
-    color: var(--white);
+    color: white;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--primary-color);
-}
-
-/* Hero Section */
+/* 3. Hero / Banner (Corregido para centrar el texto) */
 .hero {
-    height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                linear-gradient(135deg, #2c3e50, #27ae60);
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--white);
-    text-align: center;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
-.btn-hero {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: transform 0.3s;
-}
-
-.btn-hero:hover {
-    transform: scale(1.05);
-}
-
-/* Sección Productos */
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-}
-
-.product-grid {
+/* 4. Contenedor de Productos (ESTO ES LO QUE FALLABA) */
+.products {
+    max-width: 1200px; /* Evita que las tarjetas se estiren al infinito */
+    margin: 40px auto; /* Centra todo el bloque */
+    padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Crea columnas automáticas */
+    gap: 30px; /* Espacio entre tarjetas */
 }
 
+/* 5. Tarjetas de Producto Modernas */
 .product-card {
-    background: var(--white);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 .img-placeholder {
     width: 100%;
-    height: 200px;
+    height: 180px;
     background-color: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-}
-
-.product-info {
-    padding: 20px;
-    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
 .price {
-    color: var(--primary-color);
-    font-weight: 700;
-    font-size: 1.4rem;
-    margin: 10px 0;
+    color: #27ae60;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 15px 0;
 }
 
 .btn-buy {
-    background-color: var(--dark-color);
+    background-color: #1a1a1a;
     color: white;
     border: none;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 12px 20px;
+    border-radius: 6px;
     cursor: pointer;
     width: 100%;
-    font-weight: 600;
-    transition: background 0.3s;
+    font-size: 1rem;
 }
 
 .btn-buy:hover {
-    background-color: #333;
+    background-color: #27ae60;
 }
 
-/* Footer */
+/* 6. Footer */
 footer {
     text-align: center;
     padding: 30px;
-    background-color: #222;
-    color: #888;
+    background: #1a1a1a;
+    color: white;
     margin-top: 50px;
 }
-
